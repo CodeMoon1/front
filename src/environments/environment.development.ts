@@ -1,4 +1,12 @@
 export const environment = {
   production: false,
-  apiBaseUrl: '/api' // Em desenvolvimento, o proxy.conf.json cuida disso
+  apiBaseUrl: '/api',
+  endpoints: {
+    'veiculo': '/busca/listaPlaca',
+    'cpf':     '/busca/listaCpf',
+    'cnpj':    '/busca/listaCnpj',
+    'imovel':  '/busca/listaImovel',
+    'telefone':'/busca/listaTelefone',
+    'email':   '/busca/listaEmail'
+  } as Record<string, string>
 };

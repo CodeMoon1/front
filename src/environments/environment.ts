@@ -1,4 +1,12 @@
 export const environment = {
-  production: true,
-  apiBaseUrl: '/api' // Em produção, o servidor (Nginx/Apache) cuida do redirecionamento
+  production: false,
+  apiBaseUrl: '/api',
+  endpoints: {
+    'veiculo': '/busca/listaPlaca',
+    'cpf':     '/busca/listaCpf',
+    'cnpj':    '/busca/listaCnpj',
+    'imovel':  '/busca/listaImovel',
+    'telefone':'/busca/listaTelefone',
+    'email':   '/busca/listaEmail'
+  } as Record<string, string>
 };
