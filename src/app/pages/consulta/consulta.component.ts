@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common'; // 1. Importe o CommonModule
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ConsultaSelectorComponent } from '../../components/consulta-selector/consulta-selector.component';
-import * as XLSX from 'xlsx'; // Você precisará instalar: npm install xlsx
+import * as XLSX from 'xlsx';
 import { UpperCasePipe } from '@angular/common';
-
 
 @Component({
   selector: 'app-consulta',
   standalone: true,
-  // 2. Adicione o ConsultaSelectorComponent neste array de imports
   imports: [
+    CommonModule, 
     HeaderComponent, 
     FooterComponent, 
     UpperCasePipe,
-    ConsultaSelectorComponent // <--- Adicione esta linha
+    ConsultaSelectorComponent
   ],
   templateUrl: './consulta.component.html',
   styleUrl: './consulta.component.scss'

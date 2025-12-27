@@ -1,42 +1,42 @@
 <app-header></app-header>
 
 <main class="consulta-page">
-  <!-- Hero Section -->
   <section class="ocean-hero">
-    <h1>Oceano de Dados</h1>
-    <p>Selecione um serviço e envie seu arquivo para análise.</p>
+    
   </section>
 
-  <!-- Seletor de Serviços (Sempre visível ou esconde após selecionar) -->
-  <section class="selector-section" *ngIf="!selectedService">
-    <app-consulta-selector (onSelect)="handleSelection($event)"></app-consulta-selector>
-  </section>
+  <!-- Nova sintaxe @if do Angular 18 -->
+  @if (!selectedService) {
+    <section class="selector-section">
+      <app-consulta-selector (onSelect)="handleSelection($event)"></app-consulta-selector>
+    </section>
+  } @else {
+    <section class="upload-section">
+      <div class="container">
+        <div class="upload-card">
+          <button class="btn-back" (click)="selectedService = null">← Voltar aos serviços</button>
+          
+          <div class="service-badge">Serviço selecionado: <strong>{{ selectedService | uppercase }}</strong></div>
+          
+          <h2>Faça o upload do seu arquivo XLSX</h2>
+          <p>O arquivo deve conter os dados para a consulta de {{ selectedService }}.</p>
 
-  <!-- Área de Upload (Aparece após selecionar o serviço) -->
-  <section class="upload-section" *ngIf="selectedService">
-    <div class="container">
-      <div class="upload-card">
-        <button class="btn-back" (click)="selectedService = null">← Voltar aos serviços</button>
-        
-        <div class="service-badge">Serviço selecionado: <strong>{{ selectedService | uppercase }}</strong></div>
-        
-        <h2>Faça o upload do seu arquivo XLSX</h2>
-        <p>O arquivo deve conter os dados para a consulta de {{ selectedService }}.</p>
+          <div class="drop-zone" (click)="fileInput.click()">
+            <span class="icon">📊</span>
+            <p>Clique ou arraste o arquivo Excel aqui</p>
+            <input type="file" #fileInput (change)="onFileChange($event)" accept=".xlsx, .xls" hidden>
+          </div>
 
-        <div class="drop-zone" (click)="fileInput.click()">
-          <span class="icon">📊</span>
-          <p>Clique ou arraste o arquivo Excel aqui</p>
-          <input type="file" #fileInput (change)="onFileChange($event)" accept=".xlsx, .xls" hidden>
-        </div>
-
-        <!-- Feedback de Sucesso -->
-        <div class="success-msg" *ngIf="jsonData">
-          ✅ Arquivo processado com sucesso! {{ jsonData.length }} registros encontrados.
-          <button class="btn-process">Iniciar Processamento no Servidor</button>
+          @if (jsonData) {
+            <div class="success-msg">
+              ✅ Arquivo processado com sucesso! {{ jsonData.length }} registros encontrados.
+              <button class="btn-process">Iniciar Processamento no Servidor</button>
+            </div>
+          }
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  }
 </main>
 
 <app-footer></app-footer>

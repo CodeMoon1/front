@@ -1,3 +1,4 @@
+@import "../../../styles/variables.scss";
 .upload-card {
   background: white;
   padding: 40px;
@@ -10,9 +11,40 @@
   z-index: 20;
 
   .btn-back {
-    background: none; border: none; color: $mid-color;
-    cursor: pointer; margin-bottom: 20px; font-weight: 600;
+  // Reset de estilos padrão
+  background: transparent;
+  border: 1px solid rgba($mid-color, 0.3);
+  cursor: pointer;
+  
+  // Layout e Espaçamento
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  
+  // Tipografia
+  color: $mid-color;
+  font-weight: 600;
+  font-size: 0.95rem;
+  
+  // Animação
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Efeito ao passar o mouse
+  &:hover {
+    background-color: rgba($primary-color, 0.05);
+    color: $primary-color;
+    border-color: $primary-color;
+    transform: translateX(-5px); // Efeito visual de "voltar"
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
+
+  // Efeito ao clicar
+  &:active {
+    transform: scale(0.95);
+  }
+}
 
   .service-badge {
     background: $background-color-terciary;
