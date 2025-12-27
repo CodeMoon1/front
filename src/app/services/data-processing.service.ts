@@ -34,15 +34,18 @@ export class DataProcessingService {
   }
 
   sendDataToBackend(serviceType: string, payload: any[]): Observable<any> {
-  const path = (environment as any).endpoints[serviceType];
-  if (!path) throw new Error('Endpoint não configurado.');
+  // Usamos as variáveis que você já tem no environment.ts
+  const url = `${environment.apiBaseUrl}${environment.endpoints[serviceType]}`;
+  const token = sessionStorage.getItem('auth-token');
   
-  const url = `${environment.apiBaseUrl}${path}`;
-  
-  // Adicionando headers explicitamente para evitar que o Spring barre a requisição
-  const headers = { 'Content-Type': 'application/json' };
-  
-  return this.http.post(url, { data: payload }, { headers } );
+  return this.http.post(url, payload, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  } );
 }
+
+
 
 }
