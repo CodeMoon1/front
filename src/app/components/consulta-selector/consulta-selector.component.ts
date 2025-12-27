@@ -21,7 +21,7 @@ export class ConsultaSelectorComponent {
   options: ConsultaOption[] = [
     {
       id: 'veiculo',
-      title: 'Veículos',
+      title: 'Placas',
       description: 'Consulte histórico, multas e restrições através da placa ou RENAVAM.',
       icon: '🚗'
     },
@@ -42,18 +42,6 @@ export class ConsultaSelectorComponent {
       title: 'Imóveis',
       description: 'Localização de propriedades e registros cartoriais em todo o território.',
       icon: '🏠'
-    },
-    {
-      id: 'telefone',
-      title: 'Telefones',
-      description: 'Identificação de titularidade e histórico de números fixos ou móveis.',
-      icon: '📞'
-    },
-    {
-      id: 'email',
-      title: 'E-mails',
-      description: 'Validação e busca de vínculos associados a endereços eletrônicos.',
-      icon: '📧'
     }
   ];
 
