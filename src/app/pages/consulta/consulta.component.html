@@ -27,7 +27,8 @@
           @if (jsonData) {
             <div class="success-msg">
               ✅ Arquivo processado com sucesso! {{ jsonData.length }} registros encontrados.
-              <button class="btn-process">Iniciar Processamento no Servidor</button>
+              <<button class="btn-process" (click)="enviarConsulta()">Iniciar Processamento no Servidor</button>
+
             </div>
           }
         </div>
