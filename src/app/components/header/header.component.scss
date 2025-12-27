@@ -128,3 +128,31 @@
     }
   }
 }
+
+.nav-link-highlight {
+  background-color: white !important;
+  color: $primary-color !important;
+  
+  // AUMENTO DE LARGURA: O primeiro valor (0.6rem) é em cima/baixo, 
+  // o segundo (3rem) é esquerda/direita.
+  padding: 0.6rem 3rem !important; 
+  
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  margin-left: 1.5rem; // Aumentei um pouco o espaço lateral também
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+  text-align: center; // Garante que o texto fique centralizado no botão largo
+
+  &::after {
+    display: none !important;
+  }
+
+  &:hover {
+    background-color: transparent !important;
+    color: white !important;
+    border-color: white;
+    transform: translateY(-2px);
+  }
+}

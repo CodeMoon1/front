@@ -15,8 +15,8 @@ export interface NavItem {
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,       // 👈 Adicione para navegação
-    RouterLinkActive  // 👈 Adicione para estilizar o link ativo
+    RouterLink,       
+    RouterLinkActive  
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -26,7 +26,7 @@ export class HeaderComponent {
   navItems: NavItem[] = [
     { label: 'Sobre Nós', path: '/about' },
     { label: 'Política de Privacidade', path: '/privacy-policy' }, 
-    { label: 'Consulta', path: '/consulta'},
+    { label: 'Consultar', path: '/consulta'},
   ];
 
   // Propriedade para controlar a visibilidade do menu em telas móveis

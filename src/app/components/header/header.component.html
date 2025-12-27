@@ -6,7 +6,7 @@
       <img src="/svg/logo-white.svg"/>
     </a>
 
-    <!-- Botão Hamburger (visível apenas em telas pequenas) -->
+    <!-- Botão Hamburger -->
     <button class="menu-toggle" (click)="toggleMenu()">
       <span class="hamburger-icon"></span>
     </button>
@@ -16,6 +16,7 @@
       @for (item of navItems; track item.path) {
         <a
           class="nav-link"
+          [class.nav-link-highlight]="item.label === 'Consulta'" 
           [routerLink]="item.path"
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{ exact: true }"
