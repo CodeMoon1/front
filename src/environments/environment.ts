@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: false, // Mude para false enquanto estiver testando localmente
   apiBaseUrl: '/api',
   endpoints: {
     'veiculo': '/busca/listaPlaca',

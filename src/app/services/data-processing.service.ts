@@ -34,10 +34,15 @@ export class DataProcessingService {
   }
 
   sendDataToBackend(serviceType: string, payload: any[]): Observable<any> {
-    const path = (environment as any).endpoints[serviceType];
-    if (!path) throw new Error('Endpoint não configurado.');
-    
-    const url = `${environment.apiBaseUrl}${path}`;
-    return this.http.post(url, { data: payload } );
-  }
+  const path = (environment as any).endpoints[serviceType];
+  if (!path) throw new Error('Endpoint não configurado.');
+  
+  const url = `${environment.apiBaseUrl}${path}`;
+  
+  // Adicionando headers explicitamente para evitar que o Spring barre a requisição
+  const headers = { 'Content-Type': 'application/json' };
+  
+  return this.http.post(url, { data: payload }, { headers } );
+}
+
 }
