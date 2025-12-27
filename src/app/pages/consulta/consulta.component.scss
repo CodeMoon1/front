@@ -1,0 +1,52 @@
+.upload-card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 600px;
+  margin: -50px auto 0;
+  position: relative;
+  z-index: 20;
+
+  .btn-back {
+    background: none; border: none; color: $mid-color;
+    cursor: pointer; margin-bottom: 20px; font-weight: 600;
+  }
+
+  .service-badge {
+    background: $background-color-terciary;
+    color: $primary-color;
+    padding: 8px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .drop-zone {
+    border: 2px dashed $background-color-terciary;
+    padding: 40px;
+    border-radius: 16px;
+    margin: 30px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $background-color;
+      border-color: $primary-color;
+    }
+
+    .icon { font-size: 3rem; display: block; margin-bottom: 10px; }
+  }
+
+  .btn-process {
+    background: $suport-color-contrast;
+    color: $primary-color;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+}

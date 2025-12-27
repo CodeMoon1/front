@@ -1,0 +1,24 @@
+<div class="selector-container">
+  <div class="selector-header">
+    <h2>Oceano de Dados</h2>
+    <p>Selecione o tipo de inteligência que você deseja extrair hoje.</p>
+  </div>
+
+  <div class="options-grid">
+    @for (option of options; track option.id) {
+      <div class="option-card" (click)="selectOption(option.id)">
+        <div class="option-icon">
+          <div class="icon-wrapper">{{ option.icon }}</div>
+        </div>
+        <div class="option-content">
+          <h3>{{ option.title }}</h3>
+          <p>{{ option.description }}</p>
+        </div>
+        <div class="option-footer">
+          <span class="action-text">Iniciar Consulta</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,130 @@
+@import "../../../styles/variables.scss";
+
+.selector-container {
+  padding: 60px 20px;
+  max-width: 1000px; // Reduzi um pouco para os pares ficarem mais elegantes
+  margin: 0 auto;
+}
+
+.selector-header {
+  text-align: center;
+  margin-bottom: 60px;
+
+  h2 {
+    color: $primary-color;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    color: $text-color;
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.options-grid {
+  display: grid;
+  // Força 2 colunas em telas médias/grandes
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px;
+}
+
+.option-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centraliza o conteúdo para um visual mais "quadrado"
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba($primary-color, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+
+  &:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba($primary-color, 0.12);
+    border-color: $suport-color-contrast;
+
+    .icon-wrapper {
+      background: $suport-color-contrast;
+      color: white;
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    .action-text {
+      color: $suport-color-contrast;
+    }
+  }
+
+  .option-icon {
+    margin-bottom: 25px;
+
+    .icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: $background-color-terciary;
+      color: $primary-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      font-size: 2.5rem;
+      transition: all 0.4s ease;
+    }
+  }
+
+  .option-content {
+    h3 {
+      color: $primary-color;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: $text-color;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      min-height: 60px; // Mantém o alinhamento mesmo com textos diferentes
+    }
+  }
+
+  .option-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: $primary-color;
+    transition: color 0.3s ease;
+
+    .arrow {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Responsividade: Em celulares muito pequenos, volta para 1 coluna
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .selector-header h2 {
+    font-size: 2rem;
+  }
+
+  .option-card {
+    padding: 30px;
+  }
+}

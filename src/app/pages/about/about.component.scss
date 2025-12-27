@@ -1,8 +1,186 @@
+@import "../../../styles/variables.scss";
+
+.about-page {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+// CONFIGURAÇÃO CRUCIAL PARA A ANIMAÇÃO VOLTAR
 .minha-secao-com-animacao {
-  position: relative; /* Crucial para que o absolute do background funcione */
-  width: 80%; /* Exemplo: 80% da largura da tela */
-  height: 400px; /* Exemplo: altura fixa */
-  margin: 50px auto; /* Centraliza e dá um espaçamento */ /* Apenas para visualização */
-  overflow: hidden; /* Garante que a animação não vaze */
-  z-index: 0; /* Garante que esta seção fique acima do body, se necessário */
+  position: relative; 
+  width: 100%; 
+  height: 450px; 
+  margin: 0 auto; 
+  overflow: hidden; 
+  z-index: 0; 
+  background: $primary-color;
+
+  .hero-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 0 20px;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+  }
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+  background-color: $background-color;
+}
+
+h2 {
+  color: $primary-color;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.section-title { text-align: center; margin-bottom: 50px; }
+
+.how-it-works { background-color: white; }
+
+// Grid de Passos
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.step-card {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+  
+  .step-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba($primary-color, 0.1);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  h3 { color: $primary-color; margin-bottom: 10px; font-weight: 700; }
+  p { font-size: 0.9rem; line-height: 1.5; }
+}
+
+// Vantagens
+.advantages-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.advantage-item {
+  display: flex;
+  gap: 15px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+
+  .adv-icon { font-size: 1.8rem; }
+  h4 { color: $primary-color; font-weight: 700; margin-bottom: 5px; }
+  p { font-size: 0.9rem; }
+}
+
+@media (max-width: 768px) {
+  .minha-secao-com-animacao {
+    height: 350px;
+    .hero-overlay-content h1 { font-size: 2.2rem; }
+  }
+  section { padding: 50px 0; }
+}
+
+
+.cta-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, $suport-color-contrast 0%, $secondary-color 100%);
+  text-align: center;
+  color: white;
+
+  .cta-box {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    button {
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: $suport-color-contrast; // O laranja/amarelo para destaque
+      color: $primary-color;
+      
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+
+      &:hover {
+        background-color: white;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 60px 20px;
+    h2 { font-size: 2rem; }
+  }
 }

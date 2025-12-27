@@ -86,7 +86,7 @@ export class AnimatedBackgroundComponent implements AfterViewInit, OnDestroy {
         );
 
         if (distance < 150) {
-          this.ctx.strokeStyle = `rgba(48, 50, 48, ${1 - distance / 150})`;
+          this.ctx.strokeStyle = `rgba(245, 245, 245, ${(1 - distance / 150) * 0.6})`;
           this.ctx.lineWidth = 0.5;
           this.ctx.beginPath();
           this.ctx.moveTo(this.particlesArray[a].x, this.particlesArray[a].y);
@@ -114,7 +114,7 @@ export class AnimatedBackgroundComponent implements AfterViewInit, OnDestroy {
       if (distance < maxDistance) {
         particle.speedX += (dx / distance) * force * 0.03;
         particle.speedY += (dy / distance) * force * 0.03;
-        particle.color = '#EDA201';
+        particle.color = '#9AEBA3';
       } else {
         particle.color = '#011C40';
       }

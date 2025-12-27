@@ -1,9 +1,117 @@
 <app-header></app-header>
-<div class="minha-secao-com-animacao">
-  <app-animated-background></app-animated-background>
-</div>
-<!-- O restante do seu layout -->
-<div class="page-content">
-  <!-- ... -->
-</div>
+
+<main class="about-page">
+  <!-- SEÇÃO DA ANIMAÇÃO: Mantida com a estrutura original para não quebrar -->
+  <div class="minha-secao-com-animacao">
+    <app-animated-background></app-animated-background>
+    <div class="hero-overlay-content">
+      <h1>Sobre a Oceano de Dados</h1>
+      <p>Transformando dados em inteligência estratégica.</p>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PROFISSIONAL ABAIXO DA ANIMAÇÃO -->
+  <section class="intro-section">
+    <div class="container">
+      <h2>Nossa Plataforma</h2>
+      <p>
+        A <strong>Oceano de Dados</strong> é uma plataforma de busca e análise de informações, criada para simplificar consultas complexas de forma rápida, segura e acessível.
+      </p>
+      <p>
+        Utilizamos tecnologia de ponta, alinhada às melhores práticas do mercado, oferecendo uma das soluções mais avançadas do Brasil para tratamento e retorno de dados estruturados.
+      </p>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <h2>Como funciona a plataforma</h2>
+      <p>
+        Desenvolvida para que qualquer pessoa consiga utilizar a plataforma sem conhecimento técnico. Todo o processo é automatizado, intuitivo e transparente.
+      </p>
+      <p>
+        A consulta acontece a partir do envio de um arquivo XLSX (Excel), que é processado pela nossa tecnologia e devolvido com as informações tratadas diretamente na plataforma.
+      </p>
+    </div>
+  </section>
+
+  <section class="steps-section">
+    <div class="container">
+      <h2 class="section-title">Como utilizar</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <h3>Cadastro</h3>
+          <p>Crie sua conta de forma rápida e segura.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <h3>Envio</h3>
+          <p>Faça o upload do seu arquivo Excel diretamente.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <h3>Pagamento</h3>
+          <p>Realize o pagamento de forma simples e segura.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <h3>Retorno</h3>
+          <p>Baixe seus dados tratados em pouco tempo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="advantages-section">
+    <div class="container">
+      <h2 class="section-title">Vantagens</h2>
+      <div class="advantages-list">
+        <div class="advantage-item">
+          <span class="adv-icon">💰</span>
+          <div class="adv-text">
+            <h4>Preço Acessível</h4>
+            <p>Valores menores em comparação com a concorrência.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">⚡</span>
+          <div class="adv-text">
+            <h4>Eficiência</h4>
+            <p>Resultados rápidos com máxima precisão.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">🔒</span>
+          <div class="adv-text">
+            <h4>Segurança</h4>
+            <p>Dados tratados com total confidencialidade.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">🧠</span>
+          <div class="adv-text">
+            <h4>Intuitivo</h4>
+            <p>Interface limpa e fácil de usar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Pronto para mergulhar no Oceano de Dados?</h2>
+        <p>Comece agora mesmo a transformar seus arquivos em inteligência estratégica com a melhor tecnologia de consulta do Brasil.</p>
+        <div class="cta-actions">
+          <button class="btn-primary" routerLink="/consulta">Iniciar Minha Consulta</button>
+          <button class="btn-secondary" routerLink="/signup">Criar Conta Gratuita</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
 <app-footer></app-footer>
