@@ -1,0 +1,124 @@
+@import  '../../../../src/styles/variables.scss';
+
+.privacy-container {
+  // Define a cor de fundo geral para a página, usando a variável.
+  background-color: $background-color;
+  // Define a cor do texto padrão para os parágrafos.
+  color: $text-color;
+  // Usa uma fonte comum e segura para web, focada em legibilidade.
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  // Adiciona um espaçamento interno para que o conteúdo não cole nas bordas da tela.
+  padding: 2rem 3rem;
+  // Limita a largura máxima para melhorar a legibilidade em telas grandes.
+  max-width: 900px;
+  // Centraliza o container na página.
+  margin: 2rem auto;
+  // Adiciona uma sombra sutil para dar profundidade.
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  // Bordas arredondadas para um visual mais suave.
+  border-radius: 8px;
+
+  // Estilos para o título principal (H1) da política.
+  h1 {
+    // Cor primária para o título mais importante.
+    color: $primary-color;
+    // Tamanho de fonte grande para destaque.
+    font-size: 2.5rem;
+    // Adiciona um espaçamento abaixo do título.
+    margin-bottom: 2rem;
+    // Adiciona uma borda inferior sutil para separar o título do conteúdo.
+    border-bottom: 2px solid $background-color-secundary;
+    padding-bottom: 1rem;
+  }
+
+  // Estilos para cada seção individual da política.
+  .policy-section {
+    // Adiciona um espaçamento generoso entre as seções.
+    margin-bottom: 2.5rem;
+
+    // Estilos para os subtítulos (H2) de cada seção.
+    h2 {
+      // ... (estilos do h2 existentes)
+      color: $secondary-color;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 4px solid $mid-color;
+    }
+
+    // 👇👇👇 ADICIONE ESTE BLOCO DE CÓDIGO AQUI 👇👇👇
+    // Estilo para o parágrafo de resumo.
+    .resume {
+      // Usa a cor de fundo secundária para criar um bloco de destaque.
+      background-color: $background-color-secundary;
+      // Cor do texto um pouco mais escura para garantir contraste com o fundo.
+      color: $secondary-color;
+      // Adiciona um espaçamento interno generoso.
+      padding: 1rem 1.5rem;
+      // Bordas arredondadas para suavizar o visual do bloco.
+      border-radius: 6px;
+      // Adiciona uma borda à esquerda com a cor de destaque para conectar ao estilo do h2.
+      border-left: 4px solid $mid-color;
+      // Espaçamento abaixo do resumo, antes do conteúdo principal.
+      margin-bottom: 2rem;
+      // Deixa o texto em itálico para diferenciá-lo do conteúdo normal.
+      font-style: italic;
+      font-size: 0.95rem; // Um pouco menor que o texto principal.
+      line-height: 1.6;
+
+      // Remove o negrito padrão que pode vir do [innerHTML] para manter o estilo leve.
+      b, strong {
+        font-weight: 500; // Menos intenso que o negrito do parágrafo normal.
+        color: inherit; // Herda a cor do texto do resumo.
+      }
+    }
+    // 👆👆👆 FIM DO BLOCO PARA ADICIONAR 👆👆👆
+
+    // Estilos para os parágrafos de texto (já existentes).
+    p {
+      // ... (estilos do p existentes)
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+
+      b, strong {
+        color: $secondary-color;
+        font-weight: 600;
+      }
+    }
+
+    // Estilos para as listas (<ul> e <li>).
+    ul {
+      // Remove o recuo padrão do navegador para termos mais controle.
+      padding-left: 20px;
+      margin-top: 1rem;
+
+      li {
+        // Espaçamento entre os itens da lista.
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Media Query para telas menores (Responsividade)
+// Em dispositivos com largura de até 768px (tablets e celulares), os estilos abaixo serão aplicados.
+@media (max-width: 768px) {
+  .privacy-container {
+    // Reduz o espaçamento interno em telas menores.
+    padding: 1.5rem;
+    // Remove a margem superior para um melhor encaixe.
+    margin-top: 0;
+
+    h1 {
+      // Diminui o tamanho do título principal.
+      font-size: 2rem;
+    }
+
+    .policy-section h2 {
+      // Diminui o tamanho dos subtítulos.
+      font-size: 1.5rem;
+    }
+  }
+}

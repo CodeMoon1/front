@@ -1,0 +1,130 @@
+// src/app/components/header/header.component.scss
+
+@import '../../../styles/variables.scss'; 
+
+.navbar {
+  background-color: $primary-color;
+  padding: 0 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky; // Faz o menu ficar fixo no topo ao rolar a página
+  top: 0;
+  z-index: 1000; // Garante que o menu fique acima de outros conteúdos
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 1.5rem; // Espaçamento entre os links
+}
+
+.nav-link {
+  color: $background-color-terciary;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+
+  // Efeito de sublinhado na interação
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $background-color;
+    transition: width 0.3s ease;
+  }
+
+  &:hover,
+  &.active-link { // Estilo para link ativo ou em hover
+    color: $background-color;
+  }
+
+  &:hover::after,
+  &.active-link::after {
+    width: 100%;
+  }
+}
+
+// Esconde o botão hamburger em telas grandes
+.menu-toggle {
+  display: none;
+}
+
+// --- RESPONSIVIDADE PARA TELAS MENORES ---
+@media (max-width: 768px) {
+  .navbar-nav {
+    // Transforma o menu em um bloco vertical
+    position: absolute;
+    top: 70px; // Altura do header
+    left: 0;
+    width: 100%;
+    background-color: $primary-color;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    
+    // Animação de entrada e saída
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+
+    // Classe que abre o menu
+    &.is-open {
+      max-height: 500px; // Altura suficiente para todos os links
+    }
+  }
+
+  .nav-link {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  // Estilos para o botão hamburger
+  .menu-toggle {
+    display: block; // Mostra o botão
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    .hamburger-icon {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: $background-color;
+      position: relative;
+      transition: background-color 0.3s ease;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: $background-color;
+        left: 0;
+        transition: transform 0.3s ease;
+      }
+
+      &::before { top: -8px; }
+      &::after { bottom: -8px; }
+    }
+  }
+}

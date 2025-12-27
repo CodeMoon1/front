@@ -1,0 +1,29 @@
+<!-- src/app/components/header/header.component.html -->
+<header class="navbar">
+  <div class="navbar-container">
+    <!-- Logo da Aplicação -->
+    <a class="navbar-logo" routerLink="/">
+      <img src="/svg/logo-white.svg"/>
+    </a>
+
+    <!-- Botão Hamburger (visível apenas em telas pequenas) -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      <span class="hamburger-icon"></span>
+    </button>
+
+    <!-- Navegação Principal -->
+    <nav class="navbar-nav" [class.is-open]="isMenuOpen">
+      @for (item of navItems; track item.path) {
+        <a
+          class="nav-link"
+          [routerLink]="item.path"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="toggleMenu()"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+  </div>
+</header>

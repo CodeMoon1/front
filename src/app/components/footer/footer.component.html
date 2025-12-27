@@ -1,0 +1,97 @@
+<!-- Footer Principal -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Seção Superior do Footer -->
+    <div class="footer-top">
+      
+      <!-- Informações da Empresa -->
+      <div class="footer-brand">
+         <img class="brand-name" [src]="companyInfo.img" />
+        <p class="brand-description">{{ companyInfo.description }}</p>
+        
+        <!-- Informações de Contato -->
+        <div class="contact-info">
+          <p class="contact-item">
+            <span class="contact-icon">📧</span>
+            <a [href]="'mailto:' + companyInfo.email">{{ companyInfo.email }}</a>
+          </p>
+          <p class="contact-item">
+            <span class="contact-icon">📞</span>
+            <a [href]="'tel:' + companyInfo.phone">{{ companyInfo.phone }}</a>
+          </p>
+          <p class="contact-item">
+            <span class="contact-icon">📍</span>
+            {{ companyInfo.address }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Seções de Links -->
+      <div class="footer-links">
+        @for (section of footerSections; track section.title) {
+          <div class="footer-section">
+            <h4 class="section-title">{{ section.title }}</h4>
+            <ul class="section-links">
+              @for (link of section.links; track link.path) {
+                <li>
+                  @if (link.external) {
+                    <a 
+                      [href]="link.path" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="footer-link external-link"
+                    >
+                      {{ link.label }}
+                      <span class="external-icon">↗</span>
+                    </a>
+                  } @else {
+                    <a 
+                      [routerLink]="link.path" 
+                      class="footer-link"
+                    >
+                      {{ link.label }}
+                    </a>
+                  }
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Divisor -->
+    <div class="footer-divider"></div>
+
+    <!-- Seção Inferior do Footer -->
+    <div class="footer-bottom">
+      
+      <!-- Copyright -->
+      <div class="footer-copyright">
+        <p>&copy; {{ currentYear }}. Todos os direitos reservados.</p>
+      </div>
+
+      <!-- Redes Sociais -->
+      <div class="footer-social">
+        <span class="social-label">Siga-nos:</span>
+        <div class="social-links">
+          @for (social of socialLinks; track social.name) {
+            <a 
+              [href]="social.url" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="social-link"
+              [title]="social.name"
+            >
+              <!-- Aqui você pode usar ícones SVG ou uma biblioteca de ícones -->
+              <span class="social-icon" [class]="'icon-' + social.icon">
+                {{ getSocialIcon(social.icon) }}
+              </span>
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

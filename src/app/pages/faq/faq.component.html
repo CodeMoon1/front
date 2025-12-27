@@ -1,0 +1,129 @@
+<app-header></app-header>
+<!-- Container Principal da Página FAQ -->
+<div class="faq-container">
+  
+  <!-- Cabeçalho da Página -->
+  <header class="faq-header">
+    <h1 class="faq-title">Perguntas Frequentes</h1>
+    <p class="faq-subtitle">
+      Encontre respostas para as dúvidas mais comuns sobre nossos serviços. 
+      Se não encontrar o que procura, entre em contato conosco.
+    </p>
+  </header>
+
+  <!-- Filtros por Categoria -->
+  <div class="category-filters">
+    <h3 class="filters-title">Filtrar por categoria:</h3>
+    <div class="category-buttons">
+      <!-- Botão "Todas" -->
+      <button 
+        class="category-btn"
+        [class.active]="selectedCategory === 'todas'"
+        (click)="filterByCategory('todas')"
+      >
+        📋 Todas
+      </button>
+      
+      <!-- Botões das categorias -->
+      @for (category of categories; track category.id) {
+        <button 
+          class="category-btn"
+          [class.active]="selectedCategory === category.id"
+          (click)="filterByCategory(category.id)"
+          [title]="category.description"
+        >
+          {{ category.icon }} {{ category.name }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Controles de Expansão -->
+  <div class="expansion-controls">
+    <button class="control-btn" (click)="expandAll()">
+      ➕ Expandir Todas
+    </button>
+    <button class="control-btn" (click)="collapseAll()">
+      ➖ Recolher Todas
+    </button>
+  </div>
+
+  <!-- Lista de Perguntas Frequentes -->
+  <div class="faq-content">
+    
+    <!-- Indicador de categoria selecionada -->
+    @if (selectedCategory !== 'todas') {
+      <div class="selected-category-info">
+        <h2 class="category-title">
+          {{ getCategoryName(selectedCategory) }}
+        </h2>
+      </div>
+    }
+
+    <!-- Indicador de resultados da busca -->
+    @if (searchTerm.trim()) {
+      <div class="search-results-info">
+        <p>
+          Mostrando {{ getFilteredFaqs().length }} resultado(s) para 
+          <strong>"{{ searchTerm }}"</strong>
+        </p>
+      </div>
+    }
+
+    <!-- Lista de FAQs -->
+    <div class="faq-list">
+      @for (faq of getFilteredFaqs(); track faq.id) {
+        <div class="faq-item" [class.open]="faq.isOpen">
+          
+          <!-- Pergunta (clicável para expandir/recolher) -->
+          <div class="faq-question" (click)="toggleFaq(faq.id)">
+            <h3 class="question-text">{{ faq.question }}</h3>
+            <span class="toggle-icon" [class.rotated]="faq.isOpen">
+              ▼
+            </span>
+          </div>
+          
+          <!-- Resposta (visível apenas quando expandida) -->
+          @if (faq.isOpen) {
+            <div class="faq-answer">
+              <p class="answer-text">{{ faq.answer }}</p>
+            </div>
+          }
+        </div>
+      } @empty {
+        <!-- Mensagem quando não há resultados -->
+        <div class="no-results">
+          <div class="no-results-icon">🔍</div>
+          <h3>Nenhuma pergunta encontrada</h3>
+          <p>
+            @if (searchTerm.trim()) {
+              Não encontramos perguntas que correspondam à sua busca.
+              <br>Tente usar termos diferentes ou 
+              <button class="link-btn" (click)="searchTerm = ''">limpar a busca</button>.
+            } @else {
+              Não há perguntas disponíveis para esta categoria.
+            }
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Seção de Contato (caso não encontre a resposta) -->
+  <div class="contact-section">
+    <div class="contact-card">
+      <h3 class="contact-title">Não encontrou o que procurava?</h3>
+      <p class="contact-text">
+        Nossa equipe de suporte está pronta para ajudar você com qualquer dúvida.
+      </p>
+      <div class="contact-buttons">
+        <a href="mailto:contato@oceanodados.com.br" class="contact-btn primary">
+          📧 Enviar Email
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer id="footer"></app-footer>

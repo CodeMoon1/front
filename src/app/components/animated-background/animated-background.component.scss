@@ -1,0 +1,15 @@
+.animated-background-container {
+  position: absolute; /* Altere de fixed para absolute */
+  top: 0;
+  left: 0;
+  width: 100%;   /* Ocupa 100% da largura do elemento pai */
+  height: 100%;  /* Ocupa 100% da altura do elemento pai */
+  z-index: -1;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

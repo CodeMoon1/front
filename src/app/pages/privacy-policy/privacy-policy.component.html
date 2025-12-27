@@ -1,0 +1,35 @@
+<app-header></app-header>
+<section class="privacy-container">
+    <h1>Política de Privacidade – Oceano dos Dados</h1>
+  <!-- O loop principal que cria cada seção -->
+  @for (section of policySections; track section.id) {
+    <div class="policy-section" [id]="section.id">
+      <h2>{{ section.title }}</h2>
+
+      @if(section.resume){
+        <p class="resume" [innerHTML]="section.resume"></p>
+      }
+
+      <!-- Renderiza os parágrafos de conteúdo, se existirem -->
+      @if (section.content) {
+        @for (paragraph of section.content; track $index) {
+          <p [innerHTML]="paragraph"></p>
+        }
+      }
+
+      <!-- Renderiza a lista de itens, se existir -->
+      @if (section.listItems) {
+        <ul>
+          @for (item of section.listItems; track $index) {
+            <li [innerHTML]="item"></li>
+          }
+        </ul>
+      }
+    </div>
+  } @empty {
+    <!-- (Opcional) Mostra uma mensagem se o array policySections estiver vazio -->
+    <p>O conteúdo da política de privacidade não está disponível no momento.</p>
+  }
+</section>
+
+<app-footer></app-footer>

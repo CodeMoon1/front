@@ -1,0 +1,8 @@
+.minha-secao-com-animacao {
+  position: relative; /* Crucial para que o absolute do background funcione */
+  width: 80%; /* Exemplo: 80% da largura da tela */
+  height: 400px; /* Exemplo: altura fixa */
+  margin: 50px auto; /* Centraliza e dá um espaçamento */ /* Apenas para visualização */
+  overflow: hidden; /* Garante que a animação não vaze */
+  z-index: 0; /* Garante que esta seção fique acima do body, se necessário */
+}
