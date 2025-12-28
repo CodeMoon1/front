@@ -34,7 +34,6 @@ export class DataProcessingService {
   }
 
   sendDataToBackend(serviceType: string, payload: any[]): Observable<any> {
-  // Usamos as variáveis que você já tem no environment.ts
   const url = `${environment.apiBaseUrl}${environment.endpoints[serviceType]}`;
   const token = sessionStorage.getItem('auth-token');
   
@@ -45,7 +44,4 @@ export class DataProcessingService {
     }
   } );
 }
-
-
-
 }
