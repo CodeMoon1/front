@@ -9,6 +9,10 @@ import { ConsultaComponent } from './pages/consulta/consulta.component';
 import {HistoryComponent} from './pages/history/history.component';
 export const routes: Routes = [
     {
+        path: "", 
+        component: AboutComponent
+    },
+    {
         path: "login",
         component: LoginComponent
     },
