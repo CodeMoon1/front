@@ -92,7 +92,7 @@ export class FaqComponent {
       id: 'conta-1',
       category: 'conta',
       question: 'Como criar uma conta?',
-      answer: 'Para criar uma conta, clique no botão "Cadastrar" no topo da página, preencha seus dados pessoais e empresariais, e confirme seu email. O processo é rápido e seguro.',
+      answer: 'Para criar uma conta, clique no botão "Cadastrar" , preencha seus dados pessoais e empresariais, e confirme seu email. O processo é rápido e seguro.',
       isOpen: false
     },
     {
@@ -102,14 +102,6 @@ export class FaqComponent {
       answer: 'Na página de login, clique em "Esqueci minha senha", digite seu email cadastrado e você receberá um link para redefinir sua senha. O link é válido por 24 horas.',
       isOpen: false
     },
-    {
-      id: 'conta-3',
-      category: 'conta',
-      question: 'Posso alterar meus dados cadastrais?',
-      answer: 'Sim, você pode alterar seus dados a qualquer momento acessando a seção "Meu Perfil" em sua conta. Algumas alterações podem requerer verificação adicional por segurança.',
-      isOpen: false
-    },
-
     // Categoria: Serviços
     {
       id: 'servicos-1',
@@ -125,34 +117,12 @@ export class FaqComponent {
       answer: 'O tempo varia conforme a complexidade do projeto. Projetos simples podem ser entregues em 2-4 semanas, enquanto soluções mais complexas podem levar de 2-6 meses. Fornecemos um cronograma detalhado após a análise inicial.',
       isOpen: false
     },
-    {
-      id: 'servicos-3',
-      category: 'servicos',
-      question: 'Vocês oferecem suporte após a implementação?',
-      answer: 'Sim, oferecemos diferentes planos de suporte pós-implementação, incluindo manutenção, atualizações, treinamento adicional e suporte técnico 24/7 para clientes enterprise.',
-      isOpen: false
-    },
-
     // Categoria: Pagamento
     {
       id: 'pagamento-1',
       category: 'pagamento',
       question: 'Quais formas de pagamento vocês aceitam?',
-      answer: 'Aceitamos cartão de crédito, débito, PIX, boleto bancário e transferência bancária. Para clientes corporativos, também oferecemos faturamento mensal.',
-      isOpen: false
-    },
-    {
-      id: 'pagamento-2',
-      category: 'pagamento',
-      question: 'Posso cancelar meu plano a qualquer momento?',
-      answer: 'Sim, você pode cancelar seu plano a qualquer momento sem multas. O cancelamento será efetivo no final do período já pago, e você continuará tendo acesso aos serviços até essa data.',
-      isOpen: false
-    },
-    {
-      id: 'pagamento-3',
-      category: 'pagamento',
-      question: 'Vocês oferecem reembolso?',
-      answer: 'Oferecemos garantia de 30 dias para novos clientes. Se não ficar satisfeito com nossos serviços nos primeiros 30 dias, oferecemos reembolso integral.',
+      answer: 'PIX',
       isOpen: false
     },
 
@@ -169,13 +139,6 @@ export class FaqComponent {
       category: 'suporte',
       question: 'Qual o horário de funcionamento do suporte?',
       answer: 'Nosso suporte funciona de segunda a sexta-feira, das 8h às 18h (horário de Brasília). Clientes enterprise têm acesso ao suporte 24/7.',
-      isOpen: false
-    },
-    {
-      id: 'suporte-3',
-      category: 'suporte',
-      question: 'Vocês oferecem treinamento para usar as ferramentas?',
-      answer: 'Sim, oferecemos treinamentos presenciais e online, documentação completa, vídeos tutoriais e webinars regulares para ajudar você a aproveitar ao máximo nossas soluções.',
       isOpen: false
     }
   ];
