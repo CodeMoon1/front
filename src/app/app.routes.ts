@@ -6,7 +6,7 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { FaqComponent } from './pages/faq/faq.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
-
+import {HistoryComponent} from './pages/history/history.component';
 export const routes: Routes = [
     {
         path: "login",
@@ -32,6 +32,11 @@ export const routes: Routes = [
         path: 'consulta',
         component: ConsultaComponent,
         canActivate: [AuthGuard]
+    },
+    { 
+        path: 'report', 
+        component: HistoryComponent ,
+        canActivate: [AuthGuard]
     }
-    
+
 ];

@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<main class="history-page">
+  <div class="container">
+    <header class="page-header">
+      <h1>Histórico de Relatórios</h1>
+      <p>Visualize e baixe os resultados das suas consultas anteriores.</p>
+    </header>
+
+    @if (isLoading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Buscando seus relatórios...</p>
+      </div>
+    } @else {
+      <div class="reports-list">
+        @for (report of reports; track report.id) {
+          <div class="report-card" [ngClass]="{'processing': report.status === 'processing'}">
+            <div class="card-main">
+              <div class="info-group">
+                <span class="label">Data de Geração</span>
+                <span class="value">{{ report.generatedAt | date:'dd/MM/yyyy HH:mm' }}</span>
+              </div>
+              
+              <div class="info-group">
+                <span class="label">Identificador (ID)</span>
+                <span class="value id-text">{{ report.id }}</span>
+              </div>
+
+              <div class="status-group">
+                <span class="status-badge" [ngClass]="report.status">
+                  {{ report.status === 'completed' ? 'Concluído' : 'Em Processamento' }}
+                </span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <button class="btn-view" 
+                      (click)="openReport(report.reportUrl)"
+                      [disabled]="report.status !== 'completed'">
+                <span class="icon">📄</span> 
+                {{ report.status === 'completed' ? 'Ver Relatório' : 'Processando...' }}
+              </button>
+            </div>
+          </div>
+        } @empty {
+          <div class="empty-state">
+            <span class="icon">📂</span>
+            <h3>Nenhum relatório encontrado</h3>
+            <p>Você ainda não realizou nenhuma consulta ou seus arquivos estão sendo processados.</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</main>
+
+<app-footer></app-footer>

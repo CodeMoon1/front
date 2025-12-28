@@ -27,6 +27,7 @@ export class HeaderComponent {
     { label: 'Sobre Nós', path: '/about' },
     { label: 'Política de Privacidade', path: '/privacy-policy' }, 
     { label: 'Consultar', path: '/consulta'},
+    { label: 'Historico De Consultas', path: '/report'},
   ];
 
   // Propriedade para controlar a visibilidade do menu em telas móveis
