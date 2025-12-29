@@ -24,7 +24,7 @@ export interface NavItem {
 export class HeaderComponent {
   
   navItems: NavItem[] = [
-    { label: 'Sobre Nós', path: '/about' },
+    { label: 'Inicio', path: '/about' },
     { label: 'Política de Privacidade', path: '/privacy-policy' }, 
     { label: 'Consultar', path: '/consulta'},
     { label: 'Historico De Consultas', path: '/report'},
