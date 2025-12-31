@@ -1,40 +1,33 @@
-// src/app/components/header/header.component.ts
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router'; // 👈 Importe RouterLink e RouterLinkActive
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
-// Interface para definir a estrutura de um item do menu
 export interface NavItem {
-  label: string; // O texto que será exibido (ex: "Home")
-  path: string;  // A rota para a qual o link aponta (ex: "/home")
+  label: string;
+  path: string;
+  external?: boolean;
 }
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,       
-    RouterLinkActive  
-  ],
+  // ✅ ADICIONE RouterLinkActive AOS IMPORTS
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   
   navItems: NavItem[] = [
-    { label: 'Inicio', path: '/about' },
-    { label: 'Política de Privacidade', path: '/privacy-policy' }, 
-    { label: 'Blog', path: '/blog-detail'},
-    { label: 'Consultar', path: '/consulta'},
-    { label: 'Historico De Consultas', path: '/report'},
+    { label: 'Inicio', path: '/about' }, 
+    { label: 'Política de Privacidade', path: '/privacy-policy' },
+    { label: 'Blog', path: '/blog' }, 
+    { label: 'Consultar', path: '/consulta' },
+    { label: 'Histórico de Consultas', path: '/history' }
   ];
 
-  // Propriedade para controlar a visibilidade do menu em telas móveis
-  isMenuOpen = false;
-
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
+  // ✅ TrackBy para evitar erro NG0955
+  trackByNavItem(index: number, item: NavItem): string {
+    return item.path;
   }
 }

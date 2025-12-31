@@ -2,24 +2,21 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-// Interface para definir a estrutura de uma seção do footer
 export interface FooterSection {
   title: string;
   links: FooterLink[];
 }
 
-// Interface para definir um link do footer
 export interface FooterLink {
   label: string;
   path: string;
-  external?: boolean; // Para links externos (abrem em nova aba)
+  external?: boolean;
 }
 
-// Interface para redes sociais
 export interface SocialLink {
   name: string;
   url: string;
-  icon: string; // Nome do ícone ou classe CSS
+  icon: string;
 }
 
 @Component({
@@ -27,62 +24,61 @@ export interface SocialLink {
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  // Ano atual para o copyright
   currentYear = new Date().getFullYear();
 
-  // Seções de links do footer
+  companyInfo = {
+    img: 'assets/logo.png',
+    description: 'Transformando dados em insights estratégicos para o seu negócio.'
+  };
+
   footerSections: FooterSection[] = [
+    {
+      title: 'Produto',
+      links: [
+        { label: 'Recursos', path: '#recursos' },
+        { label: 'Preços', path: '#precos' },
+        { label: 'Segurança', path: '#seguranca' }
+      ]
+    },
     {
       title: 'Empresa',
       links: [
-        { label: 'Sobre Nós', path: '/about' }
-      ]
-    },
-    {
-      title: 'Serviços',
-      links: [
-        { label: 'Consulta', path: '/consulta' }
-      ]
-    },
-    {
-      title: 'Recursos',
-      links: [
-        { label: 'FAQ', path: '/faq' }
+        { label: 'Sobre', path: '/about' },
+        { label: 'Blog', path: '/blog' },
+        { label: 'Contato', path: '#contato' }
       ]
     },
     {
       title: 'Legal',
       links: [
-        { label: 'Política de Privacidade', path: '/privacy-policy'},
-        { label: 'Termos de Uso', path: '/privacy-policy'},
-        { label: 'Compartilhamento dos dados', path: '/privacy-policy'},
-        { label: 'LGPD', path: '/privacy-policy'}
+        { label: 'Privacidade', path: '/privacy-policy' },
+        { label: 'Termos', path: '#termos' },
+        { label: 'FAQ', path: '/faq' }
       ]
     }
   ];
 
-  
   socialLinks: SocialLink[] = [
-    { name: 'Instagram', url: 'https://www.instagram.com/oceanodosdados/#', icon: 'instagram' }
+    { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin' },
+    { name: 'Twitter', url: 'https://twitter.com', icon: 'twitter' },
+    { name: 'GitHub', url: 'https://github.com', icon: 'github' }
   ];
 
-  
-  companyInfo = {
-    img: '/svg/logo-white.svg',
-    description: 'Transformando dados em insights valiosos para o seu negócio.',
-    email: 'contato@oceanodados.com.br',
-    phone: '+55 (11) 9999-9999',
-    address: 'Minas Gerais, MG - Brasil'
-  };
+  // ✅ TrackBy para seções do footer
+  trackBySection(index: number, section: FooterSection): string {
+    return section.title;
+  }
 
-  // Método para retornar ícones das redes sociais (usando emojis como fallback)
-  getSocialIcon(iconName: string): string {
-    const icons: { [key: string]: string } = {
-      'instagram': '📷',
-    };
-    return icons[iconName] || '🔗';
+  // ✅ TrackBy para links do footer
+  trackByLink(index: number, link: FooterLink): string {
+    return link.path;
+  }
+
+  // ✅ TrackBy para redes sociais
+  trackBySocialLink(index: number, social: SocialLink): string {
+    return social.name;
   }
 }

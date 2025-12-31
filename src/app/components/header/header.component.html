@@ -1,30 +1,27 @@
-<!-- src/app/components/header/header.component.html -->
-<header class="navbar">
-  <div class="navbar-container">
-    <!-- Logo da Aplicação -->
-    <a class="navbar-logo" routerLink="/">
-      <img src="/svg/logo-white.svg"/>
-    </a>
+<header class="navbar"> <!-- Alterado de 'header' para 'navbar' -->
+  <div class="navbar-container"> <!-- Alterado de 'header-container' para 'navbar-container' -->
+    
+    <!-- Logo -->
+    <div class="navbar-logo"> <!-- Alterado de 'logo' para 'navbar-logo' -->
+      <a routerLink="/about">
+        <img src="svg/logo-white.svg" alt="Oceano dos Dados" class="logo-image" />
+      </a>
+    </div>
 
-    <!-- Botão Hamburger -->
-    <button class="menu-toggle" (click)="toggleMenu()">
-      <span class="hamburger-icon"></span>
-    </button>
-
-    <!-- Navegação Principal -->
-    <nav class="navbar-nav" [class.is-open]="isMenuOpen">
-      @for (item of navItems; track item.path) {
-        <a
-          class="nav-link"
-          [class.nav-link-highlight]="item.label === 'Consulta'" 
-          [routerLink]="item.path"
-          routerLinkActive="active-link"
-          [routerLinkActiveOptions]="{ exact: true }"
-          (click)="toggleMenu()"
-        >
-          {{ item.label }}
-        </a>
-      }
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul class="navbar-nav"> <!-- Alterado de 'nav-list' para 'navbar-nav' -->
+        <li *ngFor="let item of navItems; trackBy: trackByNavItem" class="nav-item">
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="active-link" 
+            [routerLinkActiveOptions]="{ exact: false }"
+            class="nav-link"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
     </nav>
   </div>
 </header>

@@ -9,8 +9,6 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { HistoryComponent } from './pages/history/history.component';
-
-
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
 
@@ -58,5 +56,6 @@ export const routes: Routes = [
     path: 'blog/:id',
     component: BlogDetailComponent  
   }
+   
   
 ];

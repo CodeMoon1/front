@@ -156,3 +156,10 @@
     transform: translateY(-2px);
   }
 }
+.navbar-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;   /* REMOVE AS BOLINHAS DA LISTA */
+  margin: 0;          /* REMOVE MARGENS PADRÃO */
+  padding: 0;         /* REMOVE RECUO PADRÃO */
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-
+import { HeaderComponent } from '../../components/header/header.component';
 interface BlogPost {
   id: number;
   title: string;
@@ -17,7 +17,7 @@ interface BlogPost {
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink,HeaderComponent],
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.scss']
 })
@@ -27,69 +27,43 @@ export class BlogDetailComponent implements OnInit {
   posts: BlogPost[] = [
     {
       id: 1,
-      title: 'Como Maximizar o Potencial dos Seus Dados',
-      excerpt: 'Descubra as melhores práticas para transformar dados brutos em insights estratégicos.',
-      content: '<h2>Introdução</h2><p>Os dados são o novo ouro da era digital. Neste artigo, vamos explorar como você pode maximizar o potencial dos seus dados.</p><h2>Seção 2</h2><p>Conteúdo do artigo aqui...</p>',
-      author: 'João Silva',
-      date: new Date('2025-12-20'),
+      title: 'Além da Superfície: nem tudo o que importa está visível',
+      excerpt: 'No mercado de despachantes, confiar apenas no que é visível pode ser um risco. Descubra por que os dados mais importantes estão abaixo da superfície.',
+      content: `
+        <h2>Nem tudo aparece à primeira vista</h2>
+        <p>No trabalho de um despachante, muitas decisões são tomadas com base em dados. O problema é que nem sempre o que está visível conta toda a história. Informações superficiais podem até parecer suficientes, mas deixam de fora detalhes que fazem toda a diferença quando o assunto é segurança, agilidade e confiança.</p>
+
+        <p>É exatamente como um <strong>iceberg</strong>: a parte visível é pequena, enquanto a maior e mais importante estrutura permanece escondida abaixo da superfície.</p>
+
+        <h2>A armadilha da superfície</h2>
+        <p>Grande parte das plataformas de consulta entrega apenas o que é rápido de acessar. São dados rasos, desconectados e sem contexto. Eles ajudam, mas não protegem totalmente o seu processo nem o seu cliente.</p>
+
+        <p>Confiar apenas nesse nível de informação é assumir riscos silenciosos — aqueles que não aparecem no primeiro olhar, mas que podem gerar retrabalho, prejuízos e problemas jurídicos.</p>
+
+        <h2>Onde estão os dados que realmente importam</h2>
+        <p>A <strong>Oceano de Dados</strong> foi criada para olhar além do óbvio. Nosso foco está na profundidade: históricos mais completos, relações entre dados, padrões de risco e informações que não ficam evidentes em consultas superficiais.</p>
+
+        <p>Enquanto outras soluções permanecem na superfície, nós ajudamos você a mergulhar com segurança e clareza.</p>
+
+        <h2>Por que despachantes precisam enxergar mais fundo</h2>
+        <p>No segmento de despachantes, errar custa caro. Cada consulta precisa transmitir confiança, tanto para quem executa quanto para quem contrata o serviço. Quanto mais profundo é o acesso à informação, mais segura é a decisão.</p>
+
+        <p>Com a Oceano de Dados, você deixa de apenas reagir a problemas e passa a antecipá-los, transformando dados em vantagem competitiva.</p>
+
+        <blockquote>
+          "O que não está visível pode ser exatamente o que define o resultado."
+        </blockquote>
+
+        <h2>Conclusão</h2>
+        <p>Ficar na superfície é confortável, mas limitado. Crescer com segurança exige ir além do que os olhos veem. A <strong>Oceano de Dados</strong> existe para revelar o que realmente importa e apoiar despachantes que levam seu trabalho a sério.</p>
+
+        <p>Porque, no fim, nem tudo o que importa está visível.</p>
+      `,
+      author: 'Equipe Oceano de Dados',
+      date: new Date('2025-12-31'),
       category: 'estratégia',
-      image: 'https://via.placeholder.com/400x200?text=Estrategia',
-      readTime: 5
-    },
-    {
-      id: 2,
-      title: 'Segurança de Dados: O Que Você Precisa Saber',
-      excerpt: 'Entenda como proteger suas informações sensíveis com as melhores práticas de segurança.',
-      content: '<h2>Por que Segurança é Crítica</h2><p>Em um mundo onde os dados são cada vez mais valiosos, a segurança é fundamental.</p>',
-      author: 'Maria Santos',
-      date: new Date('2025-12-15'),
-      category: 'segurança',
-      image: 'https://via.placeholder.com/400x200?text=Seguranca',
-      readTime: 7
-    },
-    {
-      id: 3,
-      title: 'Inteligência Artificial e Análise de Dados',
-      excerpt: 'Como a IA está revolucionando o processamento e análise de grandes volumes de dados.',
-      content: '<h2>A Revolução da IA</h2><p>A inteligência artificial está transformando a forma como analisamos dados.</p>',
-      author: 'Carlos Oliveira',
-      date: new Date('2025-12-10'),
-      category: 'tecnologia',
-      image: 'https://via.placeholder.com/400x200?text=IA',
-      readTime: 8
-    },
-    {
-      id: 4,
-      title: 'LGPD: Conformidade e Boas Práticas',
-      excerpt: 'Guia completo sobre como sua empresa pode estar em conformidade com a Lei Geral de Proteção de Dados.',
-      content: '<h2>O que é LGPD?</h2><p>A Lei Geral de Proteção de Dados (LGPD) é a legislação brasileira que regulamenta o tratamento de dados pessoais.</p>',
-      author: 'Ana Costa',
-      date: new Date('2025-12-05'),
-      category: 'conformidade',
-      image: 'https://via.placeholder.com/400x200?text=LGPD',
-      readTime: 6
-    },
-    {
-      id: 5,
-      title: 'Otimizando Consultas: Dicas e Truques',
-      excerpt: 'Aprenda técnicas avançadas para otimizar suas consultas e obter resultados mais rápidos.',
-      content: '<h2>Por que Otimizar Consultas?</h2><p>Consultas otimizadas economizam tempo, recursos e dinheiro.</p>',
-      author: 'Pedro Alves',
-      date: new Date('2025-11-30'),
-      category: 'tutorial',
-      image: 'https://via.placeholder.com/400x200?text=Otimizacao',
-      readTime: 9
-    },
-    {
-      id: 6,
-      title: 'Casos de Sucesso: Transformação Digital',
-      excerpt: 'Conheça histórias reais de empresas que transformaram seus negócios com dados.',
-      content: '<h2>Transformação Digital com Dados</h2><p>Muitas empresas têm conseguido transformar seus negócios através do uso estratégico de dados.</p>',
-      author: 'Lucia Ferreira',
-      date: new Date('2025-11-25'),
-      category: 'casos-de-sucesso',
-      image: 'https://via.placeholder.com/400x200?text=Casos',
-      readTime: 5
+      image: 'svg/Mesa de trabajo 1.svg',
+      readTime: 4
     }
   ];
 

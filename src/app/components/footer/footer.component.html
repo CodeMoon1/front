@@ -1,96 +1,72 @@
-<!-- Footer Principal -->
 <footer class="footer">
   <div class="footer-container">
-    
     <!-- Seção Superior do Footer -->
     <div class="footer-top">
-      
       <!-- Informações da Empresa -->
       <div class="footer-brand">
-         <img class="brand-name" [src]="companyInfo.img" />
+        <img [src]="companyInfo.img" alt="Logo" class="brand-logo" />
         <p class="brand-description">{{ companyInfo.description }}</p>
-        
-        <!-- Informações de Contato -->
-        <div class="contact-info">
-          <p class="contact-item">
-            <span class="contact-icon">📧</span>
-            <a [href]="'mailto:' + companyInfo.email">{{ companyInfo.email }}</a>
-          </p>
-          <p class="contact-item">
-            <span class="contact-icon">📞</span>
-            <a [href]="'tel:' + companyInfo.phone">{{ companyInfo.phone }}</a>
-          </p>
-          <p class="contact-item">
-            <span class="contact-icon">📍</span>
-            {{ companyInfo.address }}
-          </p>
-        </div>
       </div>
 
       <!-- Seções de Links -->
       <div class="footer-links">
-        @for (section of footerSections; track section.title) {
-          <div class="footer-section">
-            <h4 class="section-title">{{ section.title }}</h4>
-            <ul class="section-links">
-              @for (link of section.links; track link.path) {
-                <li>
-                  @if (link.external) {
-                    <a 
-                      [href]="link.path" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      class="footer-link external-link"
-                    >
-                      {{ link.label }}
-                      <span class="external-icon">↗</span>
-                    </a>
-                  } @else {
-                    <a 
-                      [routerLink]="link.path" 
-                      class="footer-link"
-                    >
-                      {{ link.label }}
-                    </a>
-                  }
-                </li>
-              }
-            </ul>
-          </div>
-        }
-      </div>
-    </div>
-
-    <!-- Divisor -->
-    <div class="footer-divider"></div>
-
-    <!-- Seção Inferior do Footer -->
-    <div class="footer-bottom">
-      
-      <!-- Copyright -->
-      <div class="footer-copyright">
-        <p>&copy; {{ currentYear }}. Todos os direitos reservados.</p>
+        <div
+          *ngFor="let section of footerSections; trackBy: trackBySection"
+          class="footer-section"
+        >
+          <h4 class="section-title">{{ section.title }}</h4>
+          <ul class="section-links">
+            <li *ngFor="let link of section.links; trackBy: trackByLink">
+              <a
+                [routerLink]="link.path"
+                *ngIf="!link.external"
+                class="footer-link"
+              >
+                {{ link.label }}
+              </a>
+              <a
+                [href]="link.path"
+                target="_blank"
+                rel="noopener noreferrer"
+                *ngIf="link.external"
+                class="footer-link"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Redes Sociais -->
       <div class="footer-social">
-        <span class="social-label">Siga-nos:</span>
+        <h4 class="section-title">Siga-nos</h4>
         <div class="social-links">
-          @for (social of socialLinks; track social.name) {
-            <a 
-              [href]="social.url" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="social-link"
-              [title]="social.name"
-            >
-              <!-- Aqui você pode usar ícones SVG ou uma biblioteca de ícones -->
-              <span class="social-icon" [class]="'icon-' + social.icon">
-                {{ getSocialIcon(social.icon) }}
-              </span>
-            </a>
-          }
+          <a
+            *ngFor="let social of socialLinks; trackBy: trackBySocialLink"
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            [attr.aria-label]="social.name"
+          >
+            <span class="social-icon">{{ social.icon }}</span>
+          </a>
         </div>
+      </div>
+    </div>
+
+    <!-- Seção Inferior do Footer -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ currentYear }} Oceano dos Dados. Todos os direitos reservados.
+      </p>
+      <div class="footer-bottom-links">
+        <a routerLink="/privacy-policy" class="footer-link">Privacidade</a>
+        <span class="separator">•</span>
+        <a href="#termos" class="footer-link">Termos</a>
+        <span class="separator">•</span>
+        <a href="#cookies" class="footer-link">Cookies</a>
       </div>
     </div>
   </div>
