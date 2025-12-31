@@ -1,0 +1,62 @@
+<div class="blog-container">
+  <!-- Header -->
+  <div class="blog-header">
+    <h1>Blog Oceano dos Dados</h1>
+    <p>Insights, tutoriais e as últimas novidades sobre dados, IA e tecnologia.</p>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Buscar artigos..."
+      [(ngModel)]="searchQuery"
+      class="search-input"
+    />
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-tags">
+    <button
+      *ngFor="let category of categories; trackBy: trackByCategory"
+      (click)="selectedCategory = category"
+      [class.active]="selectedCategory === category"
+      class="filter-tag"
+    >
+      {{ category | titlecase }}
+    </button>
+  </div>
+
+  <!-- Posts Grid -->
+  <div class="posts-grid">
+    <article
+      *ngFor="let post of filteredPosts; trackBy: trackByPostId"
+      class="post-card"
+    >
+      <img [src]="post.image" [alt]="post.title" class="post-image" />
+      <span class="post-category">{{ post.category | titlecase }}</span>
+
+      <div class="post-content">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+
+        <div class="post-meta">
+          <span>{{ post.author }}</span>
+          <span>•</span>
+          <span>{{ formatDate(post.date) }}</span>
+          <span>•</span>
+          <span>{{ post.readTime }} min</span>
+        </div>
+
+        <a [routerLink]="['/blog', post.id]" class="read-more">
+          Ler mais →
+        </a>
+      </div>
+    </article>
+  </div>
+
+  <!-- No Results -->
+  <div *ngIf="filteredPosts.length === 0" class="no-results">
+    <p>Nenhum artigo encontrado. Tente ajustar sua busca.</p>
+  </div>
+</div>
