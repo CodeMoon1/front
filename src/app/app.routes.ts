@@ -7,6 +7,7 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import {HistoryComponent} from './pages/history/history.component';
+import {BlogComponent} from './components/blog/blog.component';
 export const routes: Routes = [
     {
         path: "", 
@@ -28,6 +29,10 @@ export const routes: Routes = [
         path: 'faq',
         component: FaqComponent 
     },
+    {
+        path: 'blog',
+        component: BlogComponent
+  },
     {
         path: 'about',
         component: AboutComponent 

@@ -1,0 +1,83 @@
+<div class="blog-container">
+  <!-- Header -->
+  <div class="blog-header">
+    <div class="header-content">
+      <h1>Blog Oceano dos Dados</h1>
+      <p>Insights, dicas e histórias sobre transformação digital e inteligência de dados</p>
+    </div>
+  </div>
+
+  <!-- Search and Filter Section -->
+  <div class="search-filter-section">
+    <div class="search-box">
+      <input
+        type="text"
+        placeholder="Buscar artigos..."
+        (keyup)="search($event)"
+        class="search-input"
+      />
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+    </div>
+
+    <div class="filter-tags">
+      <button
+        *ngFor="let category of categories; trackBy: trackByCategoryTag"
+        (click)="filterByCategory(category)"
+        [class.active]="selectedCategory === category"
+        class="filter-tag"
+      >
+        {{ category | titlecase }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Posts Grid -->
+  <div class="blog-grid">
+    <div
+      *ngIf="filteredPosts.length > 0; else noResults"
+      class="posts-container"
+    >
+      <article
+        *ngFor="let post of filteredPosts; trackBy: trackByPostId"
+        class="blog-card"
+      >
+        <!-- Card Image -->
+        <div class="card-image">
+          <img [src]="post.image" [alt]="post.title" />
+          <span class="category-badge">{{ post.category | titlecase }}</span>
+        </div>
+
+        <!-- Card Content -->
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="date">{{ formatDate(post.date) }}</span>
+            <span class="read-time">{{ post.readTime }} min de leitura</span>
+          </div>
+
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-excerpt">{{ post.excerpt }}</p>
+
+          <div class="card-footer">
+            <span class="author">Por {{ post.author }}</span>
+            <a href="#" class="read-more">Ler mais →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- No Results Message -->
+    <ng-template #noResults>
+      <div class="no-results">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <h3>Nenhum artigo encontrado</h3>
+        <p>Tente ajustar sua busca ou filtro</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

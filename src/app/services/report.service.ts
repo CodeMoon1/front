@@ -6,13 +6,16 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' } )
 export class ReportService {
-  // A URL virá do seu environment (ex: http://localhost:8080/reports )
-  private apiUrl = `${environment.apiBaseUrl}/reports`;
+  private apiUrl = `${environment.apiBaseUrl}${environment.endpoints['reports']}`;
 
   constructor(private http: HttpClient ) {}
 
-  // Método que busca a lista de relatórios do backend
   getReports(): Observable<Report[]> {
-    return this.http.get<Report[]>(this.apiUrl );
+    const token = sessionStorage.getItem('auth-token');
+    return this.http.get<Report[]>(this.apiUrl, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    } );
   }
 }

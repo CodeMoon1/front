@@ -15,11 +15,11 @@
     } @else {
       <div class="reports-list">
         @for (report of reports; track report.id) {
-          <div class="report-card" [ngClass]="{'processing': report.status === 'processing'}">
+          <div class="report-card" [ngClass]="{'processing': report.status === 'PROCESSING', 'error-card': report.status === 'ERROR'}">
             <div class="card-main">
               <div class="info-group">
                 <span class="label">Data de Geração</span>
-                <span class="value">{{ report.generatedAt | date:'dd/MM/yyyy HH:mm' }}</span>
+                <span class="value">{{ report.createAt | date:'dd/MM/yyyy HH:mm' }}</span>
               </div>
               
               <div class="info-group">
@@ -28,18 +28,24 @@
               </div>
 
               <div class="status-group">
-                <span class="status-badge" [ngClass]="report.status">
-                  {{ report.status === 'completed' ? 'Concluído' : 'Em Processamento' }}
+                <span class="status-badge" [ngClass]="report.status.toLowerCase()">
+                  {{ 
+                    report.status === 'COMPLETED' ? 'Concluído' : 
+                    report.status === 'PROCESSING' ? 'Em Processamento' : 'Erro' 
+                  }}
                 </span>
               </div>
             </div>
 
             <div class="card-actions">
               <button class="btn-view" 
-                      (click)="openReport(report.reportUrl)"
-                      [disabled]="report.status !== 'completed'">
+                      (click)="openReport(report.urlFile)"
+                      [disabled]="report.status !== 'COMPLETED'">
                 <span class="icon">📄</span> 
-                {{ report.status === 'completed' ? 'Ver Relatório' : 'Processando...' }}
+                {{ 
+                  report.status === 'COMPLETED' ? 'Ver Relatório' : 
+                  report.status === 'PROCESSING' ? 'Processando...' : 'Indisponível' 
+                }}
               </button>
             </div>
           </div>

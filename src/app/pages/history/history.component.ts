@@ -29,8 +29,10 @@ export class HistoryComponent implements OnInit {
 
   loadReports(): void {
     this.isLoading = true;
+    console.log('Iniciando busca de relatórios...');
     this.reportService.getReports().subscribe({
       next: (data) => {
+        console.log('Dados recebidos do backend:', data);
         this.reports = data;
         this.isLoading = false;
       },
@@ -43,10 +45,10 @@ export class HistoryComponent implements OnInit {
   }
 
   openReport(url: string) {
-    if (url && url !== '#') {
+    if (url && url !== 'Null' && url !== '#') {
       window.open(url, '_blank');
     } else {
-      Swal.fire('Aguarde', 'Este relatório ainda está sendo processado.', 'info');
+      Swal.fire('Aguarde', 'Este relatório ainda está sendo processado ou falhou.', 'info');
     }
   }
 }

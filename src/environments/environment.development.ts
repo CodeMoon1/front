@@ -8,6 +8,6 @@ export const environment = {
     'imovel':  '/busca/listaImovel',
     'telefone':'/busca/listaTelefone',
     'email':   '/busca/listaEmail',
-    'reports': '/listar/reports'
+    'reports': '/reports'
   } as Record<string, string>
 };

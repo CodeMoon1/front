@@ -26,6 +26,7 @@ export class HeaderComponent {
   navItems: NavItem[] = [
     { label: 'Inicio', path: '/about' },
     { label: 'Política de Privacidade', path: '/privacy-policy' }, 
+    { label: 'Blog', path: '/blog-detail'},
     { label: 'Consultar', path: '/consulta'},
     { label: 'Historico De Consultas', path: '/report'},
   ];
