@@ -63,6 +63,77 @@
     </div>
   </section>
 
+<section #statsSection class="stats-section-refined">
+  <div class="container">
+    <div class="stats-grid">
+      
+      <!-- Card 1: Volume -->
+      <div class="stat-card">
+        <div class="stat-icon-box">
+          <!-- Ícone de Banco de Dados -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 8c0 2.21-4.03 4-9 4s-9-1.79-9-4 4.03-4 9-4 9 1.79 9 4z"></path>
+            <path d="M3 8v8c0 2.21 4.03 4 9 4s9-1.79 9-4V8"></path>
+            <path d="M3 12c0 2.21 4.03 4 9 4s9-1.79 9-4"></path>
+          </svg>
+        </div>
+        <div class="counter-wrapper">
+          <span class="number">{{ counts.database }}</span>
+          <span class="label">Milhões</span>
+          <span class="plus">+</span>
+        </div>
+        <p class="stat-description">
+          <strong>Registros Processados</strong>
+          Base de dados robusta e em constante crescimento.
+        </p>
+      </div>
+
+      <!-- Card 2: Velocidade -->
+      <div class="stat-card">
+        <div class="stat-icon-box">
+          <!-- Ícone de Velocidade/Raio -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+        </div>
+        <div class="counter-wrapper">
+          <span class="label">Em até</span>
+          <span class="number">{{ counts.speed }}</span>
+          <span class="label">Minutos</span>
+        </div>
+        <p class="stat-description">
+          <strong>Agilidade Real</strong>
+          Seus arquivos tratados e entregues em tempo recorde.
+        </p>
+      </div>
+
+      <!-- Card 3: Precisão -->
+      <div class="stat-card">
+        <div class="stat-icon-box">
+          <!-- Ícone de Check/Escudo -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+        </div>
+        <div class="counter-wrapper">
+          <span class="number">{{ counts.accuracy }}</span>
+          <span class="number">.9</span>
+          <span class="plus">%</span>
+        </div>
+        <p class="stat-description">
+          <strong>Assertividade</strong>
+          Rigoroso processo de validação e cruzamento de dados.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
   <section class="advantages-section">
     <div class="container">
       <h2 class="section-title">Vantagens</h2>

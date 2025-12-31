@@ -184,3 +184,98 @@ h2 {
     h2 { font-size: 2rem; }
   }
 }
+.stats-section-refined {
+  background-color: #ffffff;
+  padding: 100px 0;
+  border-top: 1px solid #f1f5f9;
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 colunas no desktop
+    gap: 40px;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .counter-wrapper {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      color: $primary-color;
+      margin-bottom: 15px;
+
+      .number {
+        font-size: 4rem;
+        font-weight: 800;
+        letter-spacing: -2px;
+        line-height: 1;
+      }
+
+      .label {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #64748b; // Cinza para destacar o número
+      }
+
+      .plus {
+        font-size: 2rem;
+        font-weight: 700;
+        opacity: 0.8;
+      }
+    }
+
+    .stat-description {
+      font-size: 1rem;
+      color: #64748b;
+      line-height: 1.4;
+
+      strong {
+        display: block;
+        color: #1e293b;
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+// Responsividade para Celular
+@media (max-width: 992px) {
+  .stats-section-refined {
+    .stats-grid {
+      grid-template-columns: 1fr; // 1 coluna no celular
+      gap: 60px;
+    }
+    
+    .stat-card .counter-wrapper .number {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.stat-icon-box {
+  color: $primary-color; // Usa a cor principal do seu site
+  width: 45px;
+  height: 45px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($primary-color, 0.1); // Um fundo bem clarinho da cor principal
+  border-radius: 12px; // Bordas arredondadas para um visual moderno
+  padding: 10px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
