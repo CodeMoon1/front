@@ -30,7 +30,7 @@ export class FooterComponent {
   currentYear = new Date().getFullYear();
 
   companyInfo = {
-    img: 'assets/logo.png',
+    img: 'svg/logo-white.svg',
     description: 'Transformando dados em insights estratégicos para o seu negócio.'
   };
 
@@ -38,9 +38,9 @@ export class FooterComponent {
     {
       title: 'Produto',
       links: [
-        { label: 'Recursos', path: '#recursos' },
-        { label: 'Preços', path: '#precos' },
-        { label: 'Segurança', path: '#seguranca' }
+        { label: 'Recursos', path: '/faq' },
+        { label: 'Preços', path: '/faq' },
+        { label: 'Segurança', path: '/faq' }
       ]
     },
     {
@@ -48,14 +48,14 @@ export class FooterComponent {
       links: [
         { label: 'Sobre', path: '/about' },
         { label: 'Blog', path: '/blog' },
-        { label: 'Contato', path: '#contato' }
+        { label: 'Contato', path: '/faq' }
       ]
     },
     {
       title: 'Legal',
       links: [
         { label: 'Privacidade', path: '/privacy-policy' },
-        { label: 'Termos', path: '#termos' },
+        { label: 'Termos', path: '/privacy-policy' },
         { label: 'FAQ', path: '/faq' }
       ]
     }
@@ -67,7 +67,7 @@ export class FooterComponent {
     { name: 'GitHub', url: 'https://github.com', icon: 'github' }
   ];
 
-  // ✅ TrackBy para seções do footer
+ 
   trackBySection(index: number, section: FooterSection): string {
     return section.title;
   }
