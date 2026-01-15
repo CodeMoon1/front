@@ -30,18 +30,6 @@ export class ConsultaSelectorComponent {
       title: 'Pessoas Físicas',
       description: 'Busca detalhada de informações cadastrais e vínculos através do CPF.',
       icon: '👤'
-    },
-    {
-      id: 'cnpj',
-      title: 'Empresas',
-      description: 'Análise de dados societários, situação cadastral e débitos via CNPJ.',
-      icon: '🏢'
-    },
-    {
-      id: 'imovel',
-      title: 'Imóveis',
-      description: 'Localização de propriedades e registros cartoriais em todo o território.',
-      icon: '🏠'
     }
   ];
 
